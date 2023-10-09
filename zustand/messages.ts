@@ -5,14 +5,20 @@ export type MessageState = {
   feeling: Feeling | null;
   need: Need | null;
   currentScreen: Screen;
-  setFeeling: (feeling: Feeling | null) => void;
-  setNeed: (need: Need | null) => void;
+  setCurrentScreen: (payload: Screen) => void;
+  setFeeling: (payload: Feeling | null) => void;
+  setNeed: (payload: Need | null) => void;
+  restart: () => void;
 };
 
 export const useMessageStore = create<MessageState>((set) => ({
   feeling: null,
   need: null,
   currentScreen: Screen.ONE,
+  setCurrentScreen: (payload: Screen) =>
+    set(() => ({ currentScreen: payload })),
   setFeeling: (payload: Feeling | null) => set(() => ({ feeling: payload })),
   setNeed: (payload: Need | null) => set(() => ({ need: payload })),
+  restart: () =>
+    set(() => ({ feeling: null, need: null, currentScreen: Screen.ONE })),
 }));

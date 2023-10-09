@@ -3,6 +3,7 @@ export enum Screen {
   TWO = "two",
   THREE = "three",
   FOUR = "four",
+  FIVE = "five",
 }
 
 export enum Feeling {

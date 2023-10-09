@@ -1,24 +1,29 @@
-"use client";
-
 import React from "react";
-import { Feeling } from "../../helpers/enums";
+import { Feeling, Screen } from "../../helpers/enums";
 
 type Props = {
-  feeling?: Feeling;
+  selectedFeeling: Feeling | null;
   setFeeling: (feeling: Feeling) => void;
+  setCurrentScreen: (screen: Screen) => void;
 };
 
-const ScreenOne = ({ setFeeling }: Props) => {
+const ScreenOne = ({
+  setFeeling,
+  selectedFeeling,
+  setCurrentScreen,
+}: Props) => {
   return (
     <>
-      <h2 className="text-4xl mb-4">How are you feeling today?</h2>
+      <h2>How are you feeling today?</h2>
       <div className="flex flex-row items-center justify-center space-x-2">
         {[Feeling.LONELY, Feeling.WORRIED].map(
           (feeling: Feeling, index: number) => (
             <button
               key={index}
               onClick={() => setFeeling(feeling)}
-              className={"border p-2"}
+              className={`border p-2 ${
+                selectedFeeling === feeling ? "bg-gray-300" : ""
+              }`}
             >
               {feeling}
             </button>
@@ -26,7 +31,14 @@ const ScreenOne = ({ setFeeling }: Props) => {
         )}
       </div>
       <div className="my-10">
-        <button className="border p-2">next</button>
+        {selectedFeeling && (
+          <button
+            className="border p-2"
+            onClick={() => setCurrentScreen(Screen.TWO)}
+          >
+            next
+          </button>
+        )}
       </div>
     </>
   );
