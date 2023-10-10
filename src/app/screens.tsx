@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useMessageStore } from "../../zustand/messages";
 import { Screen } from "../../helpers/enums";
 import ScreenOne from "./screen-one";
@@ -8,6 +8,7 @@ import ScreenTwo from "./screen-two";
 import ScreenThree from "./screen-three";
 import ScreenFour from "./screen-four";
 import ScreenFive from "./screen-five";
+import useContentFul from "../../contentful";
 
 const Screens = () => {
   const {
@@ -19,6 +20,12 @@ const Screens = () => {
     setCurrentScreen,
     restart,
   } = useMessageStore();
+
+  const { fetchMessages } = useContentFul();
+
+  useEffect(() => {
+    fetchMessages().then((res) => console.log(res));
+  }, [fetchMessages]);
 
   switch (currentScreen) {
     case Screen.ONE:
