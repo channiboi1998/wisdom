@@ -1,5 +1,5 @@
 import React from "react";
-import { Feeling, Screen } from "../../helpers/enums";
+import { Feeling, Screen } from "../../../helpers/enums";
 
 type Props = {
   selectedFeeling: Feeling | null;

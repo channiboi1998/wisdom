@@ -1,4 +1,4 @@
-import Screens from "./screens";
+import Screens from "../components/screens";
 
 export default function Home() {
   return (

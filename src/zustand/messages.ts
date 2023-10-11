@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Feeling, Need, Screen } from "../helpers/enums";
+import { Feeling, Need, Screen } from "../../helpers/enums";
 
 export type MessageState = {
   feeling: Feeling | null;

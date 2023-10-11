@@ -2,14 +2,12 @@
 
 import { createClient } from "contentful";
 
-const useContentFul = () => {
+const useCF = () => {
   console.log(process.env);
   const client = createClient({
-    space: process.env.CF_SPACE || "wsgjajoblzwj",
-    accessToken:
-      process.env.CF_ACCESS_TOKEN ||
-      "sDMHT9fWSevsd-T14ju39P6QZS4c83ypxMJ4QxZgL7A",
-    host: process.env.CF_HOST || "cdn.contentful.com",
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE || "",
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || "",
+    host: process.env.NEXT_PUBLIC_CONTENTFUL_HOST || "",
   });
 
   const fetchMessages = async () => {
@@ -26,4 +24,4 @@ const useContentFul = () => {
   return { fetchMessages };
 };
 
-export default useContentFul;
+export default useCF;

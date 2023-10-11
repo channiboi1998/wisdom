@@ -1,5 +1,5 @@
 import React from "react";
-import { Feeling, Need, Screen } from "../../helpers/enums";
+import { Feeling, Need, Screen } from "../../../helpers/enums";
 
 type Props = {
   setCurrentScreen: (payload: Screen) => void;
