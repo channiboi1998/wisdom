@@ -4,8 +4,10 @@ import { useEffect } from "react";
 import useContentful from "@/services/contentful";
 import { useNeedStore } from "@/zustand/need";
 import Link from "next/link";
+import { useFeelingStore } from "@/zustand/feeling";
 
 export default function Page() {
+  const { selectedFeeling } = useFeelingStore();
   const { setNeeds, needs } = useNeedStore();
   const { fetchNeeds } = useContentful();
 
@@ -20,7 +22,7 @@ export default function Page() {
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1>Presently, you feel ``. What do you need most?</h1>
+      <h1>Presently, you feel `{selectedFeeling}`. What do you need most?</h1>
       {needs &&
         needs.items.map((need, index) => (
           <button key={index} className="p-2 border">
