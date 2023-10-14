@@ -1,12 +1,10 @@
 "use client";
 
-import { useFeelingStore } from "@/zustand/feeling";
-import { useNeedStore } from "@/zustand/need";
+import { usePersistStore } from "@/zustand/persist";
 import Link from "next/link";
 
 export default function Page() {
-  const { selectedFeeling } = useFeelingStore();
-  const { selectedNeed } = useNeedStore();
+  const { selectedFeeling, selectedNeed } = usePersistStore();
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">

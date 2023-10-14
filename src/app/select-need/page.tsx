@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import useContentful from "@/services/contentful";
 import { useNeedStore } from "@/zustand/need";
 import Link from "next/link";
-import { useFeelingStore } from "@/zustand/feeling";
+import { usePersistStore } from "@/zustand/persist";
 
 export default function Page() {
-  const { selectedFeeling } = useFeelingStore();
-  const { setNeeds, needs, selectedNeed, setSelectedNeed } = useNeedStore();
+  const { selectedFeeling, selectedNeed, setSelectedNeed } = usePersistStore();
+  const { setNeeds, needs } = useNeedStore();
   const { fetchNeeds } = useContentful();
 
   useEffect(() => {

@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import useContentful from "@/services/contentful";
 import Link from "next/link";
 import { useFeelingStore } from "@/zustand/feeling";
+import { usePersistStore } from "@/zustand/persist";
 
 export default function Page() {
-  const { setFeelings, feelings, setSelectedFeeling, selectedFeeling } =
-    useFeelingStore();
+  const { selectedFeeling, setSelectedFeeling } = usePersistStore();
+  const { setFeelings, feelings } = useFeelingStore();
   const { fetchFeelings } = useContentful();
 
   useEffect(() => {
@@ -18,10 +19,6 @@ export default function Page() {
       }
     });
   }, []);
-
-  useEffect(() => {
-    console.log(selectedFeeling);
-  }, [selectedFeeling]);
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
