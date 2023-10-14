@@ -9,7 +9,7 @@ export default function Page() {
       </h3>
       <h1>[message content]</h1>
       <div>
-        <Link href="/select-need">Go back</Link>
+        <Link href="/confirm-selection">Go back</Link>
         <Link href="/complete">Next</Link>
         <Link href="https://beingbakedcookies.ca" target="_blank">
           Homepage

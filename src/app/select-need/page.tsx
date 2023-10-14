@@ -8,7 +8,7 @@ import { useFeelingStore } from "@/zustand/feeling";
 
 export default function Page() {
   const { selectedFeeling } = useFeelingStore();
-  const { setNeeds, needs } = useNeedStore();
+  const { setNeeds, needs, selectedNeed, setSelectedNeed } = useNeedStore();
   const { fetchNeeds } = useContentful();
 
   useEffect(() => {
@@ -25,7 +25,13 @@ export default function Page() {
       <h1>Presently, you feel `{selectedFeeling}`. What do you need most?</h1>
       {needs &&
         needs.items.map((need, index) => (
-          <button key={index} className="p-2 border">
+          <button
+            key={index}
+            className={`border p-2 ${
+              selectedNeed === need.fields.label ? "bg-gray-500" : ""
+            }`}
+            onClick={() => setSelectedNeed(need.fields.label)}
+          >
             {need.fields.label}
           </button>
         ))}

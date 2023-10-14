@@ -1,9 +1,18 @@
+"use client";
+
+import { useFeelingStore } from "@/zustand/feeling";
+import { useNeedStore } from "@/zustand/need";
 import Link from "next/link";
 
 export default function Page() {
+  const { selectedFeeling } = useFeelingStore();
+  const { selectedNeed } = useNeedStore();
+
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1>Presently, you feel ``. and you need ``.</h1>
+      <h1>
+        Presently, you feel `{selectedFeeling}`. and you need `{selectedNeed}`.
+      </h1>
       <h3>your feelings are valid, just like you needs deserve to be met.</h3>
       <h3>
         Before moving forward, we invite you to take a pause here to close your
