@@ -29,9 +29,11 @@ export default function Page() {
             <button
               key={index}
               className={`border p-2 ${
-                selectedFeeling === feeling.fields.label ? "bg-gray-500" : ""
+                selectedFeeling?.fields.label === feeling.fields.label
+                  ? "bg-gray-500"
+                  : ""
               }`}
-              onClick={() => setSelectedFeeling(feeling.fields.label)}
+              onClick={() => setSelectedFeeling(feeling)}
             >
               {feeling.fields.label}
             </button>

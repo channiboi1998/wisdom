@@ -1,11 +1,17 @@
+import { FeelingEntrySkeleton, NeedEntrySkeleton } from "@/services/contentful";
+import { Entry } from "contentful";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export type PersistState = {
-  selectedFeeling: string | null;
-  selectedNeed: string | null;
-  setSelectedFeeling: (payload: string | null) => void;
-  setSelectedNeed: (payload: string | null) => void;
+  selectedFeeling: Entry<FeelingEntrySkeleton, undefined, string> | null;
+  selectedNeed: Entry<NeedEntrySkeleton, undefined, string> | null;
+  setSelectedFeeling: (
+    payload: Entry<FeelingEntrySkeleton, undefined, string> | null
+  ) => void;
+  setSelectedNeed: (
+    payload: Entry<NeedEntrySkeleton, undefined, string> | null
+  ) => void;
 };
 
 export const usePersistStore = create(

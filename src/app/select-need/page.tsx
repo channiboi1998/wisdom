@@ -22,15 +22,20 @@ export default function Page() {
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1>Presently, you feel `{selectedFeeling}`. What do you need most?</h1>
+      <h1>
+        Presently, you feel `{selectedFeeling?.fields.label}`. What do you need
+        most?
+      </h1>
       {needs &&
         needs.items.map((need, index) => (
           <button
             key={index}
             className={`border p-2 ${
-              selectedNeed === need.fields.label ? "bg-gray-500" : ""
+              selectedNeed?.fields.label === need.fields.label
+                ? "bg-gray-500"
+                : ""
             }`}
-            onClick={() => setSelectedNeed(need.fields.label)}
+            onClick={() => setSelectedNeed(need)}
           >
             {need.fields.label}
           </button>

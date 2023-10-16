@@ -9,7 +9,8 @@ export default function Page() {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>
-        Presently, you feel `{selectedFeeling}`. and you need `{selectedNeed}`.
+        Presently, you feel `{selectedFeeling?.fields.label}`. and you need `
+        {selectedNeed?.fields.label}`.
       </h1>
       <h3>your feelings are valid, just like you needs deserve to be met.</h3>
       <h3>
