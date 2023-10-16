@@ -41,10 +41,18 @@ export default function Page() {
           </button>
         ))}
 
-      <div>
-        <Link href="/">Go back</Link>
-        <Link href="/confirm-selection">Next</Link>
-        <Link href="https://beingbakedcookies.ca" target="_blank">
+      <div className="mt-10">
+        <Link href="/" className="border p-2">
+          Go back
+        </Link>
+        <Link href="/confirm-selection" className="border p-2">
+          Next
+        </Link>
+        <Link
+          className="border p-2"
+          href="https://beingbakedcookies.ca"
+          target="_blank"
+        >
           Homepage
         </Link>
       </div>

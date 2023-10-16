@@ -29,10 +29,18 @@ export default function Page() {
       </p>
       <p>With gratitued and love,</p>
       <p>The being baked team</p>
-      <div>
-        <Link href="/result">Go back</Link>
-        <button onClick={() => restart()}>Start again</button>
-        <Link href="https://beingbakedcookies.ca" target="_blank">
+      <div className="mt-10">
+        <Link className="border p-2" href="/result">
+          Go back
+        </Link>
+        <button className="border p-2" onClick={() => restart()}>
+          Start again
+        </button>
+        <Link
+          className="border p-2"
+          href="https://beingbakedcookies.ca"
+          target="_blank"
+        >
           Homepage
         </Link>
       </div>

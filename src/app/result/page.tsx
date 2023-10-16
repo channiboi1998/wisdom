@@ -29,10 +29,18 @@ export default function Page() {
         however long you need.
       </h3>
       <h1>{selectedMessage?.fields.message}</h1>
-      <div>
-        <Link href="/confirm-selection">Go back</Link>
-        <Link href="/complete">Next</Link>
-        <Link href="https://beingbakedcookies.ca" target="_blank">
+      <div className="mt-10">
+        <Link className="border p-2" href="/confirm-selection">
+          Go back
+        </Link>
+        <Link className="border p-2" href="/complete">
+          Next
+        </Link>
+        <Link
+          className="border p-2"
+          href="https://beingbakedcookies.ca"
+          target="_blank"
+        >
           Homepage
         </Link>
       </div>
