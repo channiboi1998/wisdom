@@ -1,6 +1,19 @@
+"use client";
+
+import { usePersistStore } from "@/zustand/persist";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
+  const { setSelectedFeeling, setSelectedNeed } = usePersistStore();
+
+  const restart = () => {
+    setSelectedFeeling(null);
+    setSelectedNeed(null);
+    router.push("/");
+  };
+
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>
@@ -16,7 +29,7 @@ export default function Page() {
       <p>The being baked team</p>
       <div>
         <Link href="/result">Go back</Link>
-        <Link href="/">Start again</Link>
+        <button onClick={() => restart()}>Start again</button>
         <Link href="https://beingbakedcookies.ca" target="_blank">
           Homepage
         </Link>
