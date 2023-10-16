@@ -1,6 +1,23 @@
+"use client";
+
+import { useEffect } from "react";
+import useContentful from "@/services/contentful";
 import Link from "next/link";
+import { usePersistStore } from "@/zustand/persist";
 
 export default function Page() {
+  const { selectedFeeling, selectedNeed } = usePersistStore();
+  const { fetchMessages } = useContentful();
+
+  useEffect(() => {
+    fetchMessages({
+      feelingId: selectedFeeling?.sys.id,
+      needId: selectedNeed?.sys.id,
+    }).then((response) => {
+      console.log("messages are:", response);
+    });
+  }, []);
+
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h3>

@@ -1,12 +1,5 @@
 import * as contentful from "contentful";
 
-export type NeedEntrySkeleton = {
-  contentTypeId: "needs";
-  fields: {
-    label: contentful.EntryFieldTypes.Text;
-  };
-};
-
 export type FeelingEntrySkeleton = {
   contentTypeId: "feelings";
   fields: {
@@ -14,7 +7,24 @@ export type FeelingEntrySkeleton = {
   };
 };
 
+export type NeedEntrySkeleton = {
+  contentTypeId: "needs";
+  fields: {
+    label: contentful.EntryFieldTypes.Text;
+  };
+};
+
+export type MessageEntrySkeleton = {
+  contentTypeId: "messages";
+  fields: {
+    label: contentful.EntryFieldTypes.Text;
+    feeling: contentful.Entry<FeelingEntrySkeleton>;
+    need: contentful.Entry<NeedEntrySkeleton>;
+  };
+};
+
 const useContentful = () => {
+  ``;
   const client = contentful.createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE || "",
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || "",
@@ -45,7 +55,27 @@ const useContentful = () => {
     }
   };
 
-  return { fetchFeelings, fetchNeeds };
+  const fetchMessages = async ({
+    feelingId,
+    needId,
+  }: {
+    feelingId?: string | null;
+    needId?: string | null;
+  }) => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "messages",
+        select: ["fields"],
+        "fields.feeling.sys.id": feelingId ?? "",
+        "fields.need.sys.id": needId ?? "",
+      });
+      return entries;
+    } catch (error) {
+      console.error("Error fetching messages:", error);
+    }
+  };
+
+  return { fetchFeelings, fetchNeeds, fetchMessages };
 };
 
 export default useContentful;
