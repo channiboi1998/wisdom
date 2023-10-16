@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
-  const { setSelectedFeeling, setSelectedNeed } = usePersistStore();
+  const { setSelectedFeeling, setSelectedNeed, setSelectedMessage } =
+    usePersistStore();
 
   const restart = () => {
     setSelectedFeeling(null);
     setSelectedNeed(null);
+    setSelectedMessage(null);
     router.push("/");
   };
 

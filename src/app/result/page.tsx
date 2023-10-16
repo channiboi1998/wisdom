@@ -6,7 +6,8 @@ import Link from "next/link";
 import { usePersistStore } from "@/zustand/persist";
 
 export default function Page() {
-  const { selectedFeeling, selectedNeed } = usePersistStore();
+  const { selectedFeeling, selectedNeed, selectedMessage, setSelectedMessage } =
+    usePersistStore();
   const { fetchMessages } = useContentful();
 
   useEffect(() => {
@@ -14,7 +15,10 @@ export default function Page() {
       feelingId: selectedFeeling?.sys.id,
       needId: selectedNeed?.sys.id,
     }).then((response) => {
-      console.log("messages are:", response);
+      if (response && response.items.length > 0) {
+        const randomIndex = Math.floor(Math.random() * response.items.length);
+        setSelectedMessage(response.items[randomIndex]);
+      }
     });
   }, []);
 
@@ -24,7 +28,7 @@ export default function Page() {
         If you are open to it, we recommend reading the following out loud. Stay
         however long you need.
       </h3>
-      <h1>[message content]</h1>
+      <h1>{selectedMessage?.fields.message}</h1>
       <div>
         <Link href="/confirm-selection">Go back</Link>
         <Link href="/complete">Next</Link>
