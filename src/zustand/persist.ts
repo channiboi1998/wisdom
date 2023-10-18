@@ -20,6 +20,7 @@ export type PersistState = {
   setSelectedMessage: (
     payload: Entry<MessageEntrySkeleton, undefined, string> | null
   ) => void;
+  restart: () => void;
 };
 
 export const usePersistStore = create(
@@ -28,11 +29,22 @@ export const usePersistStore = create(
       selectedFeeling: null,
       selectedNeed: null,
       setSelectedFeeling: (payload) =>
-        set(() => ({ selectedFeeling: payload })),
-      setSelectedNeed: (payload) => set(() => ({ selectedNeed: payload })),
+        set(() => ({
+          selectedFeeling: payload,
+          selectedNeed: null,
+          selectedMessage: null,
+        })),
+      setSelectedNeed: (payload) =>
+        set(() => ({ selectedNeed: payload, selectedMessage: null })),
       selectedMessage: null,
       setSelectedMessage: (payload) =>
         set(() => ({ selectedMessage: payload })),
+      restart: () =>
+        set(() => ({
+          selectedFeeling: null,
+          selectedNeed: null,
+          selectedMessage: null,
+        })),
     }),
     {
       name: "persist-storage", // name of the item in the storage (must be unique)

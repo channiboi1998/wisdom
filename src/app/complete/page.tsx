@@ -6,13 +6,10 @@ import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
-  const { setSelectedFeeling, setSelectedNeed, setSelectedMessage } =
-    usePersistStore();
+  const { restart } = usePersistStore();
 
-  const restart = () => {
-    setSelectedFeeling(null);
-    setSelectedNeed(null);
-    setSelectedMessage(null);
+  const reset = () => {
+    restart();
     router.push("/");
   };
 
@@ -33,7 +30,7 @@ export default function Page() {
         <Link className="border p-2" href="/result">
           Go back
         </Link>
-        <button className="border p-2" onClick={() => restart()}>
+        <button className="border p-2" onClick={() => reset()}>
           Start again
         </button>
         <Link

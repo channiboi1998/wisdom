@@ -11,15 +11,19 @@ export default function Page() {
   const { fetchMessages } = useContentful();
 
   useEffect(() => {
-    fetchMessages({
-      feelingId: selectedFeeling?.sys.id,
-      needId: selectedNeed?.sys.id,
-    }).then((response) => {
-      if (response && response.items.length > 0) {
-        const randomIndex = Math.floor(Math.random() * response.items.length);
-        setSelectedMessage(response.items[randomIndex]);
-      }
-    });
+    if (selectedMessage === null) {
+      fetchMessages({
+        feelingId: selectedFeeling?.sys.id,
+        needId: selectedNeed?.sys.id,
+      }).then((response) => {
+        if (response && response.items.length > 0) {
+          const randomIndex = Math.floor(Math.random() * response.items.length);
+          setSelectedMessage(response.items[randomIndex]);
+        }
+      });
+    } else {
+      console.log("has message saved");
+    }
   }, []);
 
   return (

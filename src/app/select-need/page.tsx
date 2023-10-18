@@ -1,46 +1,18 @@
-"use client";
-
-import { useEffect } from "react";
 import useContentful from "@/services/contentful";
-import { useNeedStore } from "@/zustand/need";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { usePersistStore } from "@/zustand/persist";
 
-export default function Page() {
-  const { selectedFeeling, selectedNeed, setSelectedNeed } = usePersistStore();
-  const { setNeeds, needs } = useNeedStore();
+export default async function Page() {
   const { fetchNeeds } = useContentful();
-
-  useEffect(() => {
-    fetchNeeds().then((response) => {
-      if (response) {
-        console.log("needs are:", response);
-        setNeeds(response);
-      }
-    });
-  }, []);
+  const needs = await fetchNeeds();
+  const Need = dynamic(() => import("./need"), { ssr: false });
+  const Heading = dynamic(() => import("./heading"), { ssr: false });
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1>
-        Presently, you feel `{selectedFeeling?.fields?.label}`. What do you need
-        most?
-      </h1>
+      <Heading />
       {needs &&
-        needs.items.map((need, index) => (
-          <button
-            key={index}
-            className={`border p-2 ${
-              selectedNeed?.fields.label === need.fields.label
-                ? "bg-gray-500"
-                : ""
-            }`}
-            onClick={() => setSelectedNeed(need)}
-          >
-            {need.fields.label}
-          </button>
-        ))}
-
+        needs.items.map((need, index) => <Need need={need} key={index} />)}
       <div className="mt-10">
         <Link href="/" className="border p-2">
           Go back

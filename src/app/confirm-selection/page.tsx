@@ -1,17 +1,13 @@
-"use client";
-
-import { usePersistStore } from "@/zustand/persist";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
 export default function Page() {
-  const { selectedFeeling, selectedNeed } = usePersistStore();
-
+  const SelectionMessage = dynamic(() => import("./selection-message"), {
+    ssr: false,
+  });
   return (
     <div className="h-screen flex flex-col items-center justify-center">
-      <h1>
-        Presently, you feel `{selectedFeeling?.fields.label}`. and you need `
-        {selectedNeed?.fields.label}`.
-      </h1>
+      <SelectionMessage />
       <h3>your feelings are valid, just like you needs deserve to be met.</h3>
       <h3>
         Before moving forward, we invite you to take a pause here to close your

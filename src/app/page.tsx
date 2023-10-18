@@ -1,24 +1,11 @@
-"use client";
-
-import { useEffect } from "react";
 import useContentful from "@/services/contentful";
 import Link from "next/link";
-import { useFeelingStore } from "@/zustand/feeling";
-import { usePersistStore } from "@/zustand/persist";
+import dynamic from "next/dynamic";
 
-export default function Page() {
-  const { selectedFeeling, setSelectedFeeling } = usePersistStore();
-  const { setFeelings, feelings } = useFeelingStore();
+export default async function Page() {
   const { fetchFeelings } = useContentful();
-
-  useEffect(() => {
-    fetchFeelings().then((response) => {
-      if (response) {
-        console.log("feelings are:", response);
-        setFeelings(response);
-      }
-    });
-  }, []);
+  const feelings = await fetchFeelings();
+  const Feeling = dynamic(() => import("./feeling"), { ssr: false });
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
@@ -26,17 +13,7 @@ export default function Page() {
       <div>
         {feelings &&
           feelings.items.map((feeling, index) => (
-            <button
-              key={index}
-              className={`border p-2 ${
-                selectedFeeling?.fields?.label === feeling.fields.label
-                  ? "bg-gray-500"
-                  : ""
-              }`}
-              onClick={() => setSelectedFeeling(feeling)}
-            >
-              {feeling.fields.label}
-            </button>
+            <Feeling feeling={feeling} key={index} />
           ))}
       </div>
       <div className="mt-10">
