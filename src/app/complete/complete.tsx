@@ -1,13 +1,23 @@
 "use client";
 
+import { useFeelingStore } from "@/zustand/feeling";
+import { useNeedStore } from "@/zustand/need";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Link from "next/link";
 import React from "react";
 
 const Complete = () => {
   const { setSelectedScreen } = useScreenStore();
+  const { setSelectedFeeling } = useFeelingStore();
+  const { setSelectedNeed } = useNeedStore();
+
+  const restart = () => {
+    setSelectedFeeling(null);
+    setSelectedNeed(null);
+    setSelectedScreen(Screen.SELECT_FEELING);
+  };
   return (
-    <div>
+    <div className="h-screen flex flex-col items-center justify-center">
       <p>Thank you for your courage in welcoming and exploring this feeling.</p>
       <p>
         We hope this experience has offered you some comfort as you navigate
@@ -24,10 +34,7 @@ const Complete = () => {
         >
           Go back
         </button>
-        <button
-          onClick={() => setSelectedScreen(Screen.SELECT_FEELING)}
-          className="border p-2"
-        >
+        <button onClick={restart} className="border p-2">
           Start Again
         </button>
         <Link

@@ -7,7 +7,7 @@ import React from "react";
 const Result = () => {
   const { setSelectedScreen } = useScreenStore();
   return (
-    <div>
+    <div className="h-screen flex flex-col items-center justify-center">
       <p>
         If you are open to it, we recommend reading the following out loud. Stay
         here however long you need.

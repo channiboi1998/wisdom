@@ -11,7 +11,7 @@ const ConfirmSelection = () => {
   const { selectedNeed } = useNeedStore();
   const { selectedFeeling } = useFeelingStore();
   return (
-    <div>
+    <div className="h-screen flex flex-col items-center justify-center">
       <p>
         Presently, you feel `{selectedFeeling?.fields.label}`, and you need `
         {selectedNeed?.fields.label}`.
