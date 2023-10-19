@@ -1,8 +1,8 @@
 import useContentful from "@/services/contentful";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import React from "react";
 
-export default async function Page() {
+const SelectNeed = async () => {
   const { fetchNeeds } = useContentful();
   const needs = await fetchNeeds();
   const Need = dynamic(() => import("./need"), { ssr: false });
@@ -13,21 +13,8 @@ export default async function Page() {
       <Heading />
       {needs &&
         needs.items.map((need, index) => <Need need={need} key={index} />)}
-      <div className="mt-10">
-        <Link href="/" className="border p-2">
-          Go back
-        </Link>
-        <Link href="/confirm-selection" className="border p-2">
-          Next
-        </Link>
-        <Link
-          className="border p-2"
-          href="https://beingbakedcookies.ca"
-          target="_blank"
-        >
-          Homepage
-        </Link>
-      </div>
     </div>
   );
-}
+};
+
+export default SelectNeed;

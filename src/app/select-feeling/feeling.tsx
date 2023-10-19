@@ -1,7 +1,7 @@
 "use client";
 
 import { FeelingEntrySkeleton } from "@/services/contentful";
-import { usePersistStore } from "@/zustand/persist";
+import { useFeelingStore } from "@/zustand/feeling";
 import { Entry } from "contentful";
 import React from "react";
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Feeling = ({ feeling }: Props) => {
-  const { selectedFeeling, setSelectedFeeling } = usePersistStore();
+  const { selectedFeeling, setSelectedFeeling } = useFeelingStore();
   return (
     <button
       className={`border p-2 ${

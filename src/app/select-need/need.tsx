@@ -1,7 +1,7 @@
 "use client";
 
 import { NeedEntrySkeleton } from "@/services/contentful";
-import { usePersistStore } from "@/zustand/persist";
+import { useNeedStore } from "@/zustand/need";
 import { Entry } from "contentful";
 import React from "react";
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Need = ({ need }: Props) => {
-  const { selectedNeed, setSelectedNeed } = usePersistStore();
+  const { selectedNeed, setSelectedNeed } = useNeedStore();
   return (
     <button
       className={`border p-2 ${
