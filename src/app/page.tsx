@@ -3,6 +3,7 @@
 import { Screen, useScreenStore } from "@/zustand/screen";
 import SelectFeeling from "./select-feeling";
 import SelectNeed from "./select-need";
+import ConfirmSelection from "./confirm-selection";
 
 export default function Page() {
   const { selectedScreen } = useScreenStore();
@@ -12,6 +13,8 @@ export default function Page() {
       return <SelectFeeling />;
     case Screen.SELECT_NEED:
       return <SelectNeed />;
+    case Screen.CONFIRM_SELECTION:
+      return <ConfirmSelection />;
     default:
       return null;
   }
