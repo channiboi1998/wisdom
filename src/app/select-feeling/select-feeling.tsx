@@ -1,23 +1,49 @@
-import useContentful from "@/services/contentful";
-import dynamic from "next/dynamic";
-import React from "react";
-import SelectFeelingActions from "./select-feeling-actions";
+"use client";
 
-const SelectFeeling = async () => {
+import React, { useEffect } from "react";
+import { useFeelingStore } from "@/zustand/feeling";
+import Feeling from "./feeling";
+import useContentful from "@/services/contentful";
+import Link from "next/link";
+import { Screen, useScreenStore } from "@/zustand/screen";
+
+const SelectFeeling = () => {
   const { fetchFeelings } = useContentful();
-  const feelings = await fetchFeelings();
-  const Feeling = dynamic(() => import("./feeling"), { ssr: false });
+  const { setSelectedScreen } = useScreenStore();
+  const { feelings, setFeelings, selectedFeeling } = useFeelingStore();
+
+  useEffect(() => {
+    fetchFeelings().then((response) => {
+      if (response) {
+        setFeelings(response);
+      }
+    });
+  }, []);
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>Hi friend, how are you feeling today?</h1>
-      <div>
-        {feelings &&
-          feelings.items.map((feeling, index) => (
-            <Feeling feeling={feeling} key={index} />
-          ))}
+      {feelings &&
+        feelings.items.map((feeling, index) => (
+          <Feeling feeling={feeling} key={index} />
+        ))}
+      <div className="mt-10">
+        {selectedFeeling && (
+          <button
+            onClick={() => setSelectedScreen(Screen.SELECT_NEED)}
+            className="border p-2"
+          >
+            Next
+          </button>
+        )}
+        <Link
+          className="border p-2"
+          href="https://beingbakedcookies.ca"
+          target="_blank"
+        >
+          Homepage
+        </Link>
       </div>
-      <SelectFeelingActions />
     </div>
   );
 };
