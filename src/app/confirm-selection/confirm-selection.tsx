@@ -29,14 +29,12 @@ const ConfirmSelection = () => {
         >
           Go back
         </button>
-        {selectedNeed && (
-          <button
-            onClick={() => setSelectedScreen(Screen.RESULT)}
-            className="border p-2"
-          >
-            Next
-          </button>
-        )}
+        <button
+          onClick={() => setSelectedScreen(Screen.RESULT)}
+          className="border p-2"
+        >
+          Next
+        </button>
         <Link
           className="border p-2"
           href="https://beingbakedcookies.ca"
