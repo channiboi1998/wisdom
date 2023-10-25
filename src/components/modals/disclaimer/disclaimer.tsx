@@ -2,19 +2,29 @@
 
 import { Dialog } from "@headlessui/react";
 import React from "react";
-import { BeakerIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Modal, useUIStore } from "@/zustand/ui";
 
 const Disclaimer = () => {
+  const { modals, setModalOpen } = useUIStore();
+  const { disclaimer } = modals;
+
+  const closeModal = () => {
+    setModalOpen(Modal.DISCLAIMER, false);
+  };
+
   return (
     <Dialog
       className="h-screen absolute top-0 left-0 w-full flex flex-row items-center justify-center z-40 bg-gray-500/50"
-      open={true}
-      onClose={() => console.log("close")}
+      open={disclaimer.isOpen}
+      onClose={closeModal}
     >
       <Dialog.Panel className="max-w-xl bg-white p-5">
         <div className="flex flex-row justify-between items-center">
           <p>Hi There!</p>
-          <XMarkIcon className="h-8 w-8" />
+          <button onClick={closeModal}>
+            <XMarkIcon className="h-8 w-8" />
+          </button>
         </div>
         <p>
           Before you begin, we wish to emphasise that this service is not a
