@@ -36,6 +36,7 @@ export default function Page() {
     } else {
       console.log("nothing changed");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFeeling, selectedNeed]);
 
   switch (selectedScreen) {
