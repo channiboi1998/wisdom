@@ -1,27 +1,18 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useFeelingStore } from "@/zustand/feeling";
 import Need from "./need";
 import { useNeedStore } from "@/zustand/need";
-import useContentful from "@/services/contentful";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Link from "next/link";
+import useGetNeeds from "@/hooks/use-get-needs";
 
 const SelectNeed = () => {
+  useGetNeeds();
   const { setSelectedScreen } = useScreenStore();
-  const { fetchNeeds } = useContentful();
   const { selectedFeeling } = useFeelingStore();
-  const { needs, setNeeds, selectedNeed } = useNeedStore();
-
-  useEffect(() => {
-    fetchNeeds().then((response) => {
-      if (response) {
-        setNeeds(response);
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { needs, selectedNeed } = useNeedStore();
 
   return (
     <div className="h-screen flex flex-col items-center justify-center">
