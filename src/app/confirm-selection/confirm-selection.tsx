@@ -13,7 +13,7 @@ const ConfirmSelection = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <p>
-        Presently, you feel `{selectedFeeling?.fields.label}`, and you need `
+        Presently, you feel `{selectedFeeling?.label}`, and you need `
         {selectedNeed?.fields.label}`.
       </p>
       <p>Your feelings are valid, just like your needs deserve to be met.</p>

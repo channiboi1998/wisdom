@@ -17,8 +17,7 @@ const SelectNeed = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>
-        Presently, you feel `{selectedFeeling?.fields.label}`. What do you need
-        most?
+        Presently, you feel `{selectedFeeling?.label}`. What do you need most?
       </h1>
       {needs &&
         needs.items.map((need, index) => <Need need={need} key={index} />)}

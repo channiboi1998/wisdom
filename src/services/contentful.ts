@@ -4,6 +4,7 @@ export type FeelingEntrySkeleton = {
   contentTypeId: "feelings";
   fields: {
     label: contentful.EntryFieldTypes.Text;
+    image?: contentful.EntryFieldTypes.AssetLink;
   };
 };
 
@@ -35,7 +36,7 @@ const useContentful = () => {
     try {
       const entries = await client.getEntries<NeedEntrySkeleton>({
         content_type: "needs",
-        select: ["fields"],
+        //select: ["fields"],
       });
       return entries;
     } catch (error) {
@@ -69,6 +70,7 @@ const useContentful = () => {
         "fields.feeling.sys.id": feelingId ?? "",
         "fields.need.sys.id": needId ?? "",
       });
+
       return entries;
     } catch (error) {
       console.error("Error fetching messages:", error);

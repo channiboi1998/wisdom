@@ -11,9 +11,8 @@ const useGetRandomMessage = (): void => {
   const { setRandomMessage } = useMessageStore();
   useEffect(() => {
     if (selectedFeeling && selectedNeed) {
-      console.log("message changed");
       fetchMessages({
-        feelingId: selectedFeeling.sys.id,
+        feelingId: selectedFeeling.id,
         needId: selectedNeed.sys.id,
       }).then((response) => {
         if (response && response.items.length > 0) {

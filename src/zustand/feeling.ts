@@ -1,16 +1,28 @@
 import { FeelingEntrySkeleton } from "@/services/contentful";
-import { Entry, EntryCollection } from "contentful";
+import { AssetFile, Entry, EntryCollection } from "contentful";
 import { create } from "zustand";
 
+export type Feeling = {
+  label: string;
+  id: string;
+  image: FeelingImage | null;
+};
+export type FeelingImage = {
+  url: string | AssetFile | undefined;
+  title:
+    | string
+    | {
+        [x: string]: string | undefined;
+      }
+    | undefined;
+  id: string;
+};
+
 export type FeelingState = {
-  selectedFeeling: Entry<FeelingEntrySkeleton, undefined, string> | null;
-  setSelectedFeeling: (
-    payload: Entry<FeelingEntrySkeleton, undefined, string> | null
-  ) => void;
-  feelings: EntryCollection<FeelingEntrySkeleton, undefined, string> | null;
-  setFeelings: (
-    payload: EntryCollection<FeelingEntrySkeleton, undefined, string> | null
-  ) => void;
+  selectedFeeling: Feeling | null;
+  setSelectedFeeling: (payload: Feeling | null) => void;
+  feelings: Feeling[] | null;
+  setFeelings: (payload: Feeling[] | null) => void;
 };
 
 export const useFeelingStore = create<FeelingState>((set) => ({

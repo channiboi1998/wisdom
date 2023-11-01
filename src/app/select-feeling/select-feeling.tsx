@@ -15,7 +15,7 @@ const SelectFeeling = () => {
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>Hi friend, how are you feeling today?</h1>
       {feelings &&
-        feelings.items.map((feeling, index) => (
+        feelings.map((feeling, index) => (
           <Feeling feeling={feeling} key={index} />
         ))}
       <div className="mt-10">

@@ -1,12 +1,10 @@
 "use client";
 
-import { FeelingEntrySkeleton } from "@/services/contentful";
-import { useFeelingStore } from "@/zustand/feeling";
-import { Entry } from "contentful";
+import { Feeling, useFeelingStore } from "@/zustand/feeling";
 import React from "react";
 
 type Props = {
-  feeling: Entry<FeelingEntrySkeleton, undefined, string>;
+  feeling: Feeling;
 };
 
 const Feeling = ({ feeling }: Props) => {
@@ -14,14 +12,13 @@ const Feeling = ({ feeling }: Props) => {
   return (
     <button
       className={`border p-2 ${
-        selectedFeeling &&
-        selectedFeeling?.fields?.label === feeling.fields.label
+        selectedFeeling && selectedFeeling?.label === feeling.label
           ? "bg-gray-500"
           : ""
       }`}
       onClick={() => setSelectedFeeling(feeling)}
     >
-      {feeling.fields.label}
+      {feeling.label}
     </button>
   );
 };
