@@ -1,12 +1,12 @@
 "use client";
 
 import { NeedEntrySkeleton } from "@/services/contentful";
-import { useNeedStore } from "@/zustand/need";
+import { Need, useNeedStore } from "@/zustand/need";
 import { Entry } from "contentful";
 import React from "react";
 
 type Props = {
-  need: Entry<NeedEntrySkeleton, undefined, string>;
+  need: Need;
 };
 
 const Need = ({ need }: Props) => {
@@ -14,11 +14,11 @@ const Need = ({ need }: Props) => {
   return (
     <button
       className={`border p-2 ${
-        selectedNeed?.fields.label === need.fields.label ? "bg-gray-500" : ""
+        selectedNeed?.label === need.label ? "bg-gray-500" : ""
       }`}
       onClick={() => setSelectedNeed(need)}
     >
-      {need.fields.label}
+      {need.label}
     </button>
   );
 };

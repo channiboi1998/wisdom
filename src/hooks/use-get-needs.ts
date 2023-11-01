@@ -1,5 +1,6 @@
 import useContentful from "@/services/contentful";
-import { useNeedStore } from "@/zustand/need";
+import { prepareNeeds } from "@/utils/needs.util";
+import { Need, useNeedStore } from "@/zustand/need";
 import { useEffect } from "react";
 
 const useGetNeeds = () => {
@@ -8,7 +9,8 @@ const useGetNeeds = () => {
   useEffect(() => {
     fetchNeeds().then((response) => {
       if (response) {
-        setNeeds(response);
+        const { items } = response;
+        setNeeds(prepareNeeds(items));
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -12,6 +12,7 @@ export type NeedEntrySkeleton = {
   contentTypeId: "needs";
   fields: {
     label: contentful.EntryFieldTypes.Text;
+    description: contentful.EntryFieldTypes.Text;
   };
 };
 

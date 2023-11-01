@@ -1,16 +1,16 @@
-import { NeedEntrySkeleton } from "@/services/contentful";
-import { Entry, EntryCollection } from "contentful";
 import { create } from "zustand";
 
+export type Need = {
+  id: string;
+  label: string;
+  description: string;
+};
+
 export type NeedState = {
-  selectedNeed: Entry<NeedEntrySkeleton, undefined, string> | null;
-  setSelectedNeed: (
-    payload: Entry<NeedEntrySkeleton, undefined, string> | null
-  ) => void;
-  needs: EntryCollection<NeedEntrySkeleton, undefined, string> | null;
-  setNeeds: (
-    payload: EntryCollection<NeedEntrySkeleton, undefined, string> | null
-  ) => void;
+  selectedNeed: Need | null;
+  setSelectedNeed: (payload: Need | null) => void;
+  needs: Need[] | null;
+  setNeeds: (payload: Need[] | null) => void;
 };
 
 export const useNeedStore = create<NeedState>((set) => ({
