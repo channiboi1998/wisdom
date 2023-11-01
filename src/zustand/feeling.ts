@@ -8,7 +8,7 @@ export type Feeling = {
   image: FeelingImage | null;
 };
 export type FeelingImage = {
-  url: string | AssetFile | undefined;
+  url: string | undefined;
   title:
     | string
     | {

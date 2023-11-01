@@ -21,9 +21,11 @@ const useGetFeelings = () => {
               label: item.fields.label,
               id: item.sys.id,
               image: {
-                url: image.fields.file?.url
-                  ? `https:${image.fields.file.url}`
-                  : undefined,
+                url:
+                  image.fields.file?.url &&
+                  typeof image.fields.file.url === "string"
+                    ? `https:${image.fields.file.url}`
+                    : undefined,
                 title: image.fields.title,
                 id: image.sys.id,
               },
@@ -35,7 +37,6 @@ const useGetFeelings = () => {
             image: null,
           };
         });
-
         setFeelings(feelings);
       }
     });

@@ -32,27 +32,25 @@ const useContentful = () => {
     host: process.env.NEXT_PUBLIC_CONTENTFUL_HOST || "",
   });
 
-  const fetchNeeds = async () => {
-    try {
-      const entries = await client.getEntries<NeedEntrySkeleton>({
-        content_type: "needs",
-        //select: ["fields"],
-      });
-      return entries;
-    } catch (error) {
-      console.error("Error fetching needs:", error);
-    }
-  };
-
   const fetchFeelings = async () => {
     try {
       const entries = await client.getEntries<FeelingEntrySkeleton>({
         content_type: "feelings",
-        select: ["fields"],
       });
       return entries;
     } catch (error) {
       console.error("Error fetching feelings:", error);
+    }
+  };
+
+  const fetchNeeds = async () => {
+    try {
+      const entries = await client.getEntries<NeedEntrySkeleton>({
+        content_type: "needs",
+      });
+      return entries;
+    } catch (error) {
+      console.error("Error fetching needs:", error);
     }
   };
 
