@@ -17,7 +17,7 @@ const Complete = () => {
     setSelectedScreen(Screen.SELECT_FEELING);
   };
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div>
       <p>Thank you for your courage in welcoming and exploring this feeling.</p>
       <p>
         We hope this experience has offered you some comfort as you navigate

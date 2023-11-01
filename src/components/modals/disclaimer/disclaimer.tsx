@@ -15,7 +15,7 @@ const Disclaimer = () => {
 
   return (
     <Dialog
-      className="h-screen absolute top-0 left-0 w-full flex flex-row items-center justify-center z-40 bg-gray-500/50"
+      className="min-h-screen absolute top-0 left-0 w-full flex flex-row items-center justify-center z-40 bg-bootstrap-leather"
       open={disclaimer.isOpen}
       onClose={closeModal}
     >

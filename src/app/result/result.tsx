@@ -13,7 +13,7 @@ const Result = () => {
   const { randomMessage } = useMessageStore();
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div>
       <p>{adviceMessage(selectedNeed)}</p>
       <p>
         {randomMessage

@@ -12,9 +12,9 @@ const SelectFeeling = () => {
   const { feelings, selectedFeeling } = useFeelingStore();
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div>
       <h1>Hi friend, how are you feeling today?</h1>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         {feelings &&
           feelings.map((feeling, index) => (
             <Feeling feeling={feeling} key={index} />

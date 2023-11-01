@@ -15,7 +15,7 @@ const SelectNeed = () => {
   const { needs, selectedNeed } = useNeedStore();
 
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
+    <div>
       <h1>
         Presently, you feel `{selectedFeeling?.label}`. What do you need most?
       </h1>
