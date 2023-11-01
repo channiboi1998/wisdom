@@ -14,10 +14,13 @@ const SelectFeeling = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center">
       <h1>Hi friend, how are you feeling today?</h1>
-      {feelings &&
-        feelings.map((feeling, index) => (
-          <Feeling feeling={feeling} key={index} />
-        ))}
+      <div className="grid grid-cols-4 gap-4">
+        {feelings &&
+          feelings.map((feeling, index) => (
+            <Feeling feeling={feeling} key={index} />
+          ))}
+      </div>
+
       <div className="mt-10">
         {selectedFeeling && (
           <button
