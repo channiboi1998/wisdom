@@ -1,12 +1,13 @@
-import { MessageEntrySkeleton } from "@/services/contentful";
-import { Entry } from "contentful";
 import { create } from "zustand";
 
+export type Message = {
+  label: string;
+  message: string;
+};
+
 export type MessageState = {
-  randomMessage: Entry<MessageEntrySkeleton, undefined, string> | null;
-  setRandomMessage: (
-    payload: Entry<MessageEntrySkeleton, undefined, string> | null
-  ) => void;
+  randomMessage: Message | null;
+  setRandomMessage: (payload: Message | null) => void;
 };
 
 export const useMessageStore = create<MessageState>((set) => ({

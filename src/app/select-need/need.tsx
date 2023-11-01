@@ -19,6 +19,8 @@ const Need = ({ need }: Props) => {
       onClick={() => setSelectedNeed(need)}
     >
       {need.label}
+      <br />
+      {need.description}
     </button>
   );
 };

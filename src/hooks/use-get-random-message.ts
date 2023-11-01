@@ -1,4 +1,5 @@
 import useContentful from "@/services/contentful";
+import { prepareRandomMessage } from "@/utils/messages-util";
 import { useFeelingStore } from "@/zustand/feeling";
 import { useMessageStore } from "@/zustand/message";
 import { useNeedStore } from "@/zustand/need";
@@ -13,11 +14,11 @@ const useGetRandomMessage = (): void => {
     if (selectedFeeling && selectedNeed) {
       fetchMessages({
         feelingId: selectedFeeling.id,
-        needId: selectedNeed.sys.id,
+        needId: selectedNeed.id,
       }).then((response) => {
-        if (response && response.items.length > 0) {
-          const randomIndex = Math.floor(Math.random() * response.items.length);
-          setRandomMessage(response.items[randomIndex]);
+        if (response) {
+          const { items } = response;
+          setRandomMessage(prepareRandomMessage(items));
         } else {
           setRandomMessage(null);
         }

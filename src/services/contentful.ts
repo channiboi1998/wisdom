@@ -19,6 +19,7 @@ export type NeedEntrySkeleton = {
 export type MessageEntrySkeleton = {
   contentTypeId: "messages";
   fields: {
+    label: contentful.EntryFieldTypes.Text;
     message: contentful.EntryFieldTypes.Text;
     feeling: any;
     need: any;
@@ -65,7 +66,6 @@ const useContentful = () => {
     try {
       const entries = await client.getEntries<MessageEntrySkeleton>({
         content_type: "messages",
-        select: ["fields"],
         "fields.feeling.sys.id": feelingId ?? "",
         "fields.need.sys.id": needId ?? "",
       });

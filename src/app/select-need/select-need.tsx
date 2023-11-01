@@ -19,7 +19,9 @@ const SelectNeed = () => {
       <h1>
         Presently, you feel `{selectedFeeling?.label}`. What do you need most?
       </h1>
-      {needs && needs.map((need, index) => <Need need={need} key={index} />)}
+      <div className="grid grid-cols-2 gap-4">
+        {needs && needs.map((need, index) => <Need need={need} key={index} />)}
+      </div>
       <div className="mt-10">
         <button
           onClick={() => setSelectedScreen(Screen.SELECT_FEELING)}

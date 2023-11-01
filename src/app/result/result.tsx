@@ -17,7 +17,7 @@ const Result = () => {
       <p>{adviceMessage(selectedNeed)}</p>
       <p>
         {randomMessage
-          ? randomMessage.fields.message
+          ? randomMessage.message
           : "(no message found based on selection)"}
       </p>
       <div className="mt-10">
