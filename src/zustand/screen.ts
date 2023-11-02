@@ -9,11 +9,11 @@ export enum Screen {
 }
 
 export type ScreenState = {
-  selectedScreen: Screen;
+  selectedScreen: Screen | null;
   setSelectedScreen: (payload: Screen) => void;
 };
 
 export const useScreenStore = create<ScreenState>((set) => ({
-  selectedScreen: Screen.SELECT_FEELING,
+  selectedScreen: null,
   setSelectedScreen: (payload) => set({ selectedScreen: payload }),
 }));

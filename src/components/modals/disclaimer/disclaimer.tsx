@@ -2,27 +2,32 @@
 
 import { Dialog } from "@headlessui/react";
 import React from "react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Modal, useUIStore } from "@/zustand/ui";
+import { Screen, useScreenStore } from "@/zustand/screen";
 
 const Disclaimer = () => {
   const { modals, setModalOpen } = useUIStore();
+  const { setSelectedScreen } = useScreenStore();
   const { disclaimer } = modals;
 
   const closeModal = () => {
     setModalOpen(Modal.DISCLAIMER, false);
+    setSelectedScreen(Screen.SELECT_FEELING);
   };
 
   return (
     <Dialog
-      className="z-100 absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center bg-bootstrap-leather"
+      className="absolute left-0 top-0 flex h-screen w-full"
       open={disclaimer.isOpen}
       onClose={closeModal}
     >
-      <Dialog.Panel className="relative flex h-full w-10/12 max-w-7xl flex-col items-center justify-center lg:text-center">
-        <div className="relative w-full py-8 md:py-14">
-          <button className="absolute focus:outline-none right-0 top-0" onClick={closeModal}>
-            <XMarkIcon className="h-8 text-catalina-tile lg:h-10" />
+      <Dialog.Panel className="flex h-full w-full items-center justify-center bg-bootstrap-leather">
+        <div className="relative w-10/12 max-w-7xl py-8 md:py-14 lg:text-center">
+          <button
+            className="absolute right-0 top-0 font-semibold text-catalina-tile focus:outline-none"
+            onClick={closeModal}
+          >
+            close
           </button>
           <p className="py-2 text-lg tracking-wide text-catalina-tile lg:py-4 lg:text-2xl lg:font-semibold xl:text-4xl">
             Before you begin, we wish to emphasize that this service is not a
