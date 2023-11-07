@@ -18,7 +18,7 @@ const Result = () => {
   return (
     <>
       <div className="max-w-4xl pb-10 text-center">
-        <p className="text text-2xl font-semibold text-bootstrap-leather">
+        <p className="text text-2xl font-semibold text-bootstrap-leather italic">
           {adviceMessage(selectedNeed)}
         </p>
       </div>
