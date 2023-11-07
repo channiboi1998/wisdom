@@ -18,13 +18,13 @@ const Result = () => {
   return (
     <>
       <div className="max-w-4xl pb-10 text-center">
-        <p className="text text-2xl font-semibold text-bootstrap-leather italic">
+        <p className="text-lg font-semibold italic text-bootstrap-leather md:text-2xl">
           {adviceMessage(selectedNeed)}
         </p>
       </div>
       <Card>
         {randomMessage ? (
-          <h1 className="text-center text-4xl font-semibold text-bootstrap-leather">
+          <h1 className="text-center text-lg font-semibold text-bootstrap-leather md:text-4xl">
             {randomMessage.message}
           </h1>
         ) : (
