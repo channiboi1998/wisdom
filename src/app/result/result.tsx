@@ -1,5 +1,8 @@
 "use client";
 
+import Card from "@/components/common/card";
+import ArrowIcon from "@/components/icons/arrow-icon";
+import CookieIcon from "@/components/icons/cookie-icon";
 import { adviceMessage } from "@/utils/needs.util";
 import { useMessageStore } from "@/zustand/message";
 import { Need, useNeedStore } from "@/zustand/need";
@@ -13,35 +16,46 @@ const Result = () => {
   const { randomMessage } = useMessageStore();
 
   return (
-    <div>
-      <p>{adviceMessage(selectedNeed)}</p>
-      <p>
-        {randomMessage
-          ? randomMessage.message
-          : "(no message found based on selection)"}
-      </p>
-      <div className="mt-10">
+    <>
+      <div className="max-w-4xl pb-10 text-center">
+        <p className="text text-2xl font-semibold text-bootstrap-leather">
+          {adviceMessage(selectedNeed)}
+        </p>
+      </div>
+      <Card>
+        {randomMessage ? (
+          <h1 className="text-center text-4xl font-semibold text-bootstrap-leather">
+            {randomMessage.message}
+          </h1>
+        ) : (
+          "(no message found based on selection)"
+        )}
+      </Card>
+      {/* Actions */}
+      <div className="mt-10 flex flex-row items-center justify-center space-x-5 text-center">
         <button
           onClick={() => setSelectedScreen(Screen.CONFIRM_SELECTION)}
-          className="border p-2"
+          className="p-2 text-bootstrap-leather"
         >
-          Go back
+          <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
         </button>
-        <button
-          onClick={() => setSelectedScreen(Screen.COMPLETE)}
-          className="border p-2"
-        >
-          Next
-        </button>
+        {selectedNeed && (
+          <button
+            onClick={() => setSelectedScreen(Screen.COMPLETE)}
+            className="p-2 text-bootstrap-leather"
+          >
+            <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />
+          </button>
+        )}
         <Link
-          className="border p-2"
+          className="p-2 text-bootstrap-leather"
           href="https://beingbakedcookies.ca"
           target="_blank"
         >
-          Homepage
+          <CookieIcon className="h-[50px] w-[50px]" fill="#793723" />
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -21,7 +21,7 @@ const SelectNeed = () => {
   return (
     <>
       {/* Card Component */}
-      <Card>
+      <Card className="max-w-4xl">
         <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
           {selectedFeeling?.image?.url && (
             <Image
