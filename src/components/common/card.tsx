@@ -1,12 +1,13 @@
 import React, { ReactNode } from "react";
 
 type Props = {
+  className?: string;
   children: ReactNode;
 };
 
-const Card = ({ children }: Props) => {
+const Card = ({ className, children }: Props) => {
   return (
-    <div className="relative mb-10 inline-block">
+    <div className={`relative mb-10 inline-block max-w-4xl ${className}`}>
       <div className="relative z-10 rounded-3xl bg-catalina-tile p-4 md:p-8">
         {children}
       </div>

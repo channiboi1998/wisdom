@@ -7,6 +7,10 @@ import { useNeedStore } from "@/zustand/need";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Link from "next/link";
 import useGetNeeds from "@/hooks/use-get-needs";
+import Card from "@/components/common/card";
+import Image from "next/image";
+import ArrowIcon from "@/components/icons/arrow-icon";
+import CookieIcon from "@/components/icons/cookie-icon";
 
 const SelectNeed = () => {
   useGetNeeds();
@@ -15,37 +19,55 @@ const SelectNeed = () => {
   const { needs, selectedNeed } = useNeedStore();
 
   return (
-    <div>
-      <h1>
-        Presently, you feel `{selectedFeeling?.label}`. What do you need most?
-      </h1>
-      <div className="grid grid-cols-2 gap-4">
+    <>
+      {/* Card Component */}
+      <Card>
+        <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
+          {selectedFeeling?.image?.url && (
+            <Image
+              className="m-auto mb-2 md:h-[150px] md:w-[150px]"
+              alt="test"
+              src={selectedFeeling.image.url}
+              width={100}
+              height={100}
+            />
+          )}
+          <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:max-w-[780px] md:text-4xl lg:text-5xl">
+            Presently, you feel
+            <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>.
+            &nbsp;What do you need most?
+          </h1>
+        </div>
+      </Card>
+      {/* Need Grid */}
+      <div className="flex flex-col items-stretch justify-center pb-10 pt-5 md:flex-row md:space-x-10 md:py-10">
         {needs && needs.map((need, index) => <Need need={need} key={index} />)}
       </div>
-      <div className="mt-10">
+      {/* Actions */}
+      <div className="flex flex-row items-center justify-center space-x-5 text-center">
         <button
           onClick={() => setSelectedScreen(Screen.SELECT_FEELING)}
-          className="border p-2"
+          className="p-2 text-bootstrap-leather"
         >
-          Go back
+          <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
         </button>
         {selectedNeed && (
           <button
             onClick={() => setSelectedScreen(Screen.CONFIRM_SELECTION)}
-            className="border p-2"
+            className="p-2 text-bootstrap-leather"
           >
-            Next
+            <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />
           </button>
         )}
         <Link
-          className="border p-2"
+          className="p-2 text-bootstrap-leather"
           href="https://beingbakedcookies.ca"
           target="_blank"
         >
-          Homepage
+          <CookieIcon className="h-[50px] w-[50px]" fill="#793723" />
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

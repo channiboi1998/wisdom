@@ -1,8 +1,6 @@
 "use client";
 
-import { NeedEntrySkeleton } from "@/services/contentful";
 import { Need, useNeedStore } from "@/zustand/need";
-import { Entry } from "contentful";
 import React from "react";
 
 type Props = {
@@ -11,16 +9,24 @@ type Props = {
 
 const Need = ({ need }: Props) => {
   const { selectedNeed, setSelectedNeed } = useNeedStore();
+
+  const isActive = (selectedNeed: Need | null, need: Need) => {
+    return selectedNeed?.label === need.label;
+  };
+
   return (
     <button
-      className={`border p-2 ${
-        selectedNeed?.label === need.label ? "bg-gray-500" : ""
+      className={`rounded-3xl p-10 md:w-96 ${
+        isActive(selectedNeed, need) && "bg-catalina-tile"
       }`}
       onClick={() => setSelectedNeed(need)}
     >
-      {need.label}
-      <br />
-      {need.description}
+      <p className="mb-4 text-2xl font-bold text-sepia-black md:text-4xl">
+        {need.label}
+      </p>
+      <p className="font-semibold italic text-sepia-black md:text-xl">
+        {need.description}
+      </p>
     </button>
   );
 };
