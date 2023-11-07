@@ -5,6 +5,10 @@ import Feeling from "./feeling";
 import Link from "next/link";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import useGetFeelings from "@/hooks/use-get-feelings";
+import Card from "@/components/common/card";
+import ArrowIcon from "@/components/icons/arrow-icon";
+import CookieIcon from "@/components/icons/cookie-icon";
+import RestartIcon from "@/components/icons/restart-icon";
 
 const SelectFeeling = () => {
   useGetFeelings();
@@ -12,33 +16,50 @@ const SelectFeeling = () => {
   const { feelings, selectedFeeling } = useFeelingStore();
 
   return (
-    <div>
-      <h1>Hi friend, how are you feeling today?</h1>
-      <div className="grid grid-cols-2 gap-4">
+    <>
+      {/* Card Component */}
+      <Card>
+        <h1 className="mb-2 text-center text-xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
+          Hi friend, <br /> how are you feeling today?
+        </h1>
+        <p className="m-auto max-w-xl text-center italic text-bootstrap-leather md:text-lg lg:text-xl">
+          we understand more than one feeling can exist at the same time— for
+          now, choose the emotion that feels most present
+        </p>
+      </Card>
+      {/* Feelings Grid */}
+      <div className="grid grid-cols-2 gap-4 py-6 md:grid-cols-3 lg:grid-cols-4">
         {feelings &&
           feelings.map((feeling, index) => (
             <Feeling feeling={feeling} key={index} />
           ))}
       </div>
-
-      <div className="mt-10">
+      {/* Actions */}
+      <div className="mt-10 text-center">
         {selectedFeeling && (
           <button
             onClick={() => setSelectedScreen(Screen.SELECT_NEED)}
-            className="border p-2"
+            className="p-2 text-bootstrap-leather"
           >
-            Next
+            <ArrowIcon
+              className="rotate-180"
+              width={60}
+              height={60}
+              fill="#793723"
+            />
+            <ArrowIcon width={60} height={60} fill="#793723" />
           </button>
         )}
         <Link
-          className="border p-2"
+          className="p-2 text-bootstrap-leather"
           href="https://beingbakedcookies.ca"
           target="_blank"
         >
-          Homepage
+          <CookieIcon width={60} height={60} fill="#793723" />
+          <RestartIcon width={60} height={60} fill="#793723" />
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

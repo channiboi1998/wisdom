@@ -18,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jost.className} relative min-h-screen flex flex-col items-center justify-center`}
+        className={`${jost.className} relative flex min-h-screen flex-col items-center justify-center bg-powdered-peach`}
       >
         <Disclaimer />
-        {children}
+        <div className="relative flex w-10/12 max-w-7xl flex-col items-center justify-center py-8 md:py-14">
+          {children}
+        </div>
       </body>
     </html>
   );
