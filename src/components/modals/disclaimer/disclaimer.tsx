@@ -27,7 +27,7 @@ const Disclaimer = () => {
             className="absolute right-0 top-0 font-semibold text-catalina-tile focus:outline-none"
             onClick={closeModal}
           >
-            close
+            CLOSE
           </button>
           <p className="py-2 text-lg tracking-wide text-catalina-tile lg:py-4 lg:text-2xl lg:font-semibold xl:text-4xl">
             Before you begin, we wish to emphasize that this service is not a

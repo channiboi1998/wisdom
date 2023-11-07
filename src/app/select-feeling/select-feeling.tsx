@@ -35,19 +35,13 @@ const SelectFeeling = () => {
           ))}
       </div>
       {/* Actions */}
-      <div className="mt-10 text-center">
+      <div className="mt-10 flex flex-row items-center justify-center text-center">
         {selectedFeeling && (
           <button
             onClick={() => setSelectedScreen(Screen.SELECT_NEED)}
             className="p-2 text-bootstrap-leather"
           >
-            <ArrowIcon
-              className="rotate-180"
-              width={60}
-              height={60}
-              fill="#793723"
-            />
-            <ArrowIcon width={60} height={60} fill="#793723" />
+            <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />
           </button>
         )}
         <Link
@@ -55,8 +49,7 @@ const SelectFeeling = () => {
           href="https://beingbakedcookies.ca"
           target="_blank"
         >
-          <CookieIcon width={60} height={60} fill="#793723" />
-          <RestartIcon width={60} height={60} fill="#793723" />
+          <CookieIcon className="h-[50px] w-[50px]" fill="#793723" />
         </Link>
       </div>
     </>
