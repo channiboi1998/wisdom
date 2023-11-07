@@ -27,7 +27,7 @@ const SelectFeeling = () => {
         </p>
       </Card>
       {/* Feelings Grid */}
-      <div className="mb-10 grid grid-cols-2 gap-4 py-6 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 pb-10 pt-5 md:grid-cols-3 lg:grid-cols-4">
         {feelings &&
           feelings.map((feeling, index) => (
             <Feeling feeling={feeling} key={index} />
