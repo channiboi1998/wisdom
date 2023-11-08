@@ -18,16 +18,18 @@ const SelectFeeling = () => {
     <>
       {/* Card Component */}
       <Card>
-        <h1 className="mb-2 text-center text-2xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
-          Hi friend, <br /> how are you feeling today?
-        </h1>
-        <p className="m-auto max-w-xl text-center italic text-bootstrap-leather md:text-lg lg:text-xl">
-          we understand more than one feeling can exist at the same time— for
-          now, choose the emotion that feels most present
-        </p>
+        <div className="md:px-10">
+          <h1 className="mb-2 text-center text-2xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
+            Hi friend, <br /> how are you feeling today?
+          </h1>
+          <p className="m-auto max-w-xl text-center italic text-bootstrap-leather md:text-lg lg:text-xl">
+            We understand more than one feeling can exist at the same time—for
+            now, choose the emotion that feels most present.
+          </p>
+        </div>
       </Card>
       {/* Feelings Grid */}
-      <div className="grid grid-cols-2 gap-4 pb-10 pt-5 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-10 pb-10 pt-5 md:grid-cols-3 lg:grid-cols-4">
         {feelings &&
           feelings.map((feeling, index) => (
             <Feeling feeling={feeling} key={index} />

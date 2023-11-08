@@ -21,17 +21,18 @@ const ConfirmSelection = () => {
         <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
           {selectedFeeling?.image?.url && (
             <Image
-              className="m-auto mb-2 md:h-[150px] md:w-[150px]"
+              className="m-auto mb-2 h-[120px] w-[120px] md:h-[170px] md:w-[170px]"
               alt="test"
               src={selectedFeeling.image.url}
-              width={100}
-              height={100}
+              width={200}
+              height={200}
             />
           )}
           <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:max-w-[900px] md:text-4xl lg:text-5xl">
-            Presently, you feel
+            Presently you feel
             <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>
-            ,&nbsp;and you need
+            ,<br />
+            and you need
             <span className="text-grape">&nbsp;{selectedNeed?.label}</span>.
           </h1>
         </div>
@@ -42,10 +43,11 @@ const ConfirmSelection = () => {
         </p>
         <p className="mb-8 text-xl font-semibold text-bootstrap-leather md:text-4xl">
           Before moving forward, we invite you to take a pause here to close
-          your eyes and breathe deeply- only if you feel comfortable.
+          your eyes and breathe deeply—only if you feel comfortable. Notice any
+          tension in your body and gently try to release it.
         </p>
         <p className="mb-8 text-xl font-semibold text-bootstrap-leather md:text-4xl">
-          When you are ready, press next.
+          When you’re ready, press next.
         </p>
       </div>
       {/* Actions */}

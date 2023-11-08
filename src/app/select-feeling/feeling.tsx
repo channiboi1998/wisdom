@@ -12,7 +12,7 @@ const Feeling = ({ feeling }: Props) => {
   const { selectedFeeling, setSelectedFeeling } = useFeelingStore();
   return (
     <button
-      className={`text-md p-2 font-semibold text-bootstrap-leather md:text-xl ${
+      className={`text-md p-2 font-semibold text-sepia-black md:text-xl ${
         selectedFeeling && selectedFeeling?.label === feeling.label
           ? "rounded-2xl bg-catalina-tile"
           : ""
@@ -21,7 +21,7 @@ const Feeling = ({ feeling }: Props) => {
     >
       {feeling.image?.url && (
         <Image
-          className="m-auto mb-2 lg:h-40 lg:w-40"
+          className="m-auto mb-2 h-28 w-auto lg:h-40 lg:w-40"
           alt={
             typeof feeling.image.title === "string"
               ? feeling.image.title

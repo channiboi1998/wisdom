@@ -27,20 +27,20 @@ const Complete = () => {
           Thank you for your courage in welcoming and exploring this feeling.
         </p>
         <p className="mb-8 text-xl font-semibold text-bootstrap-leather md:text-4xl">
-          We hope this experience has offered you some comfort as you navigate
-          feelings that may be more difficult and uncomfortable. If you did not
-          resonate with what was provided, feel free to start again. Remember,
-          you are welcome back anytime.
+          We hope this experience has offered you some comfort. If you did not
+          resonate with what was provided, feel free to start again or explore
+          other services that might better cater to your needs. Remember, you
+          are welcome back anytime.
         </p>
-        <p className="mb-8 text-xl font-semibold text-bootstrap-leather md:text-4xl">
+        <p className="mb-8 text-xl font-semibold italic text-bootstrap-leather md:text-4xl">
           With gratitude and love,
         </p>
-        <div className="mb-8 flex flex-row items-center justify-center md:space-x-2">
-          <p className="text-xl font-semibold text-bootstrap-leather md:text-4xl">
+        <div className="mb-8 flex flex-row items-center justify-center space-x-2">
+          <p className="text-xl font-semibold italic text-bootstrap-leather md:text-4xl">
             The being baked team
           </p>
           <Image
-            className="h-8 w-8 rotate-[17deg] md:h-10 md:w-10"
+            className="h-8 w-8 md:h-10 md:w-10"
             src="/heart.png"
             alt="test"
             width={50}

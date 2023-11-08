@@ -21,26 +21,27 @@ const SelectNeed = () => {
   return (
     <>
       {/* Card Component */}
-      <Card className="max-w-4xl">
+      <Card>
         <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
           {selectedFeeling?.image?.url && (
             <Image
-              className="m-auto mb-2 md:h-[150px] md:w-[150px]"
+              className="m-auto mb-2 h-[120px] w-[120px] md:h-[170px] md:w-[170px]"
               alt="test"
               src={selectedFeeling.image.url}
-              width={100}
-              height={100}
+              width={200}
+              height={200}
             />
           )}
           <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:max-w-[780px] md:text-4xl lg:text-5xl">
-            Presently, you feel
+            Presently you feel
             <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>.
+            <br />
             &nbsp;What do you need most?
           </h1>
         </div>
       </Card>
       {/* Need Grid */}
-      <div className="flex flex-col items-stretch justify-center pb-10 pt-5 md:flex-row md:space-x-10 md:py-10">
+      <div className="flex flex-col pb-10 pt-5 md:flex-row md:space-x-10 md:py-10">
         {needs && needs.map((need, index) => <Need need={need} key={index} />)}
       </div>
       {/* Actions */}
