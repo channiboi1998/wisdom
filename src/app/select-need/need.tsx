@@ -21,7 +21,7 @@ const Need = ({ need }: Props) => {
       }`}
       onClick={() => setSelectedNeed(need)}
     >
-      <p className="mb-4 text-2xl font-bold text-sepia-black md:text-4xl">
+      <p className="mb-4 text-2xl font-bold text-sepia-black md:text-5xl">
         {need.label}
       </p>
       <p className="font-semibold italic text-sepia-black md:text-xl">

@@ -18,7 +18,7 @@ const SelectFeeling = () => {
     <>
       {/* Card Component */}
       <Card>
-        <div className="md:px-10">
+        <div className="py-4 md:px-10 md:py-8">
           <h1 className="mb-2 text-center text-2xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
             Hi friend, <br /> how are you feeling today?
           </h1>

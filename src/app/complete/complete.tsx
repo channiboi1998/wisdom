@@ -37,7 +37,7 @@ const Complete = () => {
         </p>
         <div className="mb-8 flex flex-row items-center justify-center space-x-2">
           <p className="text-xl font-semibold italic text-bootstrap-leather md:text-4xl">
-            The being baked team
+            The Being Baked team
           </p>
           <Image
             className="h-8 w-8 md:h-10 md:w-10"
@@ -49,7 +49,7 @@ const Complete = () => {
         </div>
       </div>
       {/* Actions */}
-      <div className="flex flex-row items-center justify-center space-x-5 text-center">
+      <div className="flex flex-row items-center justify-center space-x-5 text-center mt-5">
         <button
           onClick={() => setSelectedScreen(Screen.RESULT)}
           className="rotate-180 p-2 text-bootstrap-leather"

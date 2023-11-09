@@ -24,7 +24,7 @@ const Result = () => {
       </div>
       <Card>
         {randomMessage ? (
-          <h1 className="text-center text-lg font-semibold text-bootstrap-leather md:text-4xl">
+          <h1 className="text-center text-lg font-semibold text-bootstrap-leather md:text-4xl p-4 md:p-8">
             {randomMessage.message}
           </h1>
         ) : (

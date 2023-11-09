@@ -25,7 +25,7 @@ const SelectNeed = () => {
         <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
           {selectedFeeling?.image?.url && (
             <Image
-              className="m-auto mb-2 h-[120px] w-[120px] md:h-[170px] md:w-[170px]"
+              className="m-auto mb-2 h-[120px] w-[120px] md:h-[190px] md:w-[190px]"
               alt="test"
               src={selectedFeeling.image.url}
               width={200}
@@ -45,7 +45,7 @@ const SelectNeed = () => {
         {needs && needs.map((need, index) => <Need need={need} key={index} />)}
       </div>
       {/* Actions */}
-      <div className="flex flex-row items-center justify-center space-x-5 text-center">
+      <div className="flex flex-row items-center justify-center space-x-5 text-center mt-10">
         <button
           onClick={() => setSelectedScreen(Screen.SELECT_FEELING)}
           className="p-2 text-bootstrap-leather"

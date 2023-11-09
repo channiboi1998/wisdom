@@ -17,18 +17,18 @@ const ConfirmSelection = () => {
   return (
     <>
       {/* Card Component */}
-      <Card className="max-w-[992px]">
+      <Card className="max-w-[1200px]">
         <div className="items-center justify-center text-center md:flex md:flex-row md:space-x-6">
           {selectedFeeling?.image?.url && (
             <Image
-              className="m-auto mb-2 h-[120px] w-[120px] md:h-[170px] md:w-[170px]"
+              className="m-auto mb-2 h-[120px] w-[120px] md:h-[190px] md:w-[190px]"
               alt="test"
               src={selectedFeeling.image.url}
               width={200}
               height={200}
             />
           )}
-          <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:max-w-[900px] md:text-4xl lg:text-5xl">
+          <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
             Presently you feel
             <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>
             ,<br />
