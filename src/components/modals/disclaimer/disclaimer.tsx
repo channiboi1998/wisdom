@@ -4,6 +4,7 @@ import { Dialog } from "@headlessui/react";
 import React from "react";
 import { Modal, useUIStore } from "@/zustand/ui";
 import { Screen, useScreenStore } from "@/zustand/screen";
+import CloseIcon from "@/components/icons/close-icon";
 
 const Disclaimer = () => {
   const { modals, setModalOpen } = useUIStore();
@@ -27,9 +28,9 @@ const Disclaimer = () => {
             className="absolute right-0 top-0 font-semibold text-catalina-tile focus:outline-none"
             onClick={closeModal}
           >
-            CLOSE
+            <CloseIcon className="h-5 w-5 md:h-8 md:w-8" fill="#EDAD73" />
           </button>
-          <p className="py-2 text-lg font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl xl:text-4xl">
+          <p className="text-md py-2 font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl xl:text-4xl">
             Before you begin, we wish to emphasize that this service is not a
             substitute for professional mental health assistance. If you are
             facing a crisis, we encourage you to call or text a mental health
@@ -37,7 +38,7 @@ const Disclaimer = () => {
             emotions become too uncomfortable during your experience here, don’t
             hesitate to step away and prioritize your self-care.
           </p>
-          <p className="py-2 text-lg font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl lg:font-semibold xl:text-4xl">
+          <p className="text-md py-2 font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl lg:font-semibold xl:text-4xl">
             We recognize that mental health support varies from person to
             person, and our platform may not be the right fit for everyone.
             Please feel free to take what resonates with you and leave what does
