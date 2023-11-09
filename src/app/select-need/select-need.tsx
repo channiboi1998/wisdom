@@ -45,16 +45,22 @@ const SelectNeed = () => {
         {needs && needs.map((need, index) => <Need need={need} key={index} />)}
       </div>
       {/* Actions */}
-      <div className="flex flex-row items-center justify-center space-x-5 text-center mt-10">
+      <div className="mt-10 flex flex-row items-center justify-center space-x-5 text-center">
         <button
-          onClick={() => setSelectedScreen(Screen.SELECT_FEELING)}
+          onClick={() => {
+            setSelectedScreen(Screen.SELECT_FEELING);
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
           className="p-2 text-bootstrap-leather"
         >
           <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
         </button>
         {selectedNeed && (
           <button
-            onClick={() => setSelectedScreen(Screen.CONFIRM_SELECTION)}
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              setSelectedScreen(Screen.CONFIRM_SELECTION);
+            }}
             className="p-2 text-bootstrap-leather"
           >
             <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />

@@ -24,7 +24,7 @@ const Result = () => {
       </div>
       <Card>
         {randomMessage ? (
-          <h1 className="text-center text-lg font-semibold text-bootstrap-leather md:text-4xl p-4 md:p-8">
+          <h1 className="p-4 text-center text-lg font-semibold text-bootstrap-leather md:p-8 md:text-4xl">
             {randomMessage.message}
           </h1>
         ) : (
@@ -34,14 +34,20 @@ const Result = () => {
       {/* Actions */}
       <div className="mt-10 flex flex-row items-center justify-center space-x-5 text-center">
         <button
-          onClick={() => setSelectedScreen(Screen.CONFIRM_SELECTION)}
+          onClick={() => {
+            setSelectedScreen(Screen.CONFIRM_SELECTION);
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
           className="p-2 text-bootstrap-leather"
         >
           <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
         </button>
         {selectedNeed && (
           <button
-            onClick={() => setSelectedScreen(Screen.COMPLETE)}
+            onClick={() => {
+              setSelectedScreen(Screen.COMPLETE);
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
             className="p-2 text-bootstrap-leather"
           >
             <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />

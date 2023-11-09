@@ -39,7 +39,10 @@ const SelectFeeling = () => {
       <div className="flex flex-row items-center justify-center space-x-5 text-center">
         {selectedFeeling && (
           <button
-            onClick={() => setSelectedScreen(Screen.SELECT_NEED)}
+            onClick={() => {
+              setSelectedScreen(Screen.SELECT_NEED);
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
             className="p-2 text-bootstrap-leather"
           >
             <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />

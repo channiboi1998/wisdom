@@ -53,14 +53,20 @@ const ConfirmSelection = () => {
       {/* Actions */}
       <div className="flex flex-row items-center justify-center space-x-5 text-center">
         <button
-          onClick={() => setSelectedScreen(Screen.SELECT_NEED)}
+          onClick={() => {
+            setSelectedScreen(Screen.SELECT_NEED);
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          }}
           className="p-2 text-bootstrap-leather"
         >
           <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
         </button>
         {selectedNeed && (
           <button
-            onClick={() => setSelectedScreen(Screen.RESULT)}
+            onClick={() => {
+              setSelectedScreen(Screen.RESULT);
+              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            }}
             className="p-2 text-bootstrap-leather"
           >
             <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />
