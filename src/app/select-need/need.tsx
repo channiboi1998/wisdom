@@ -16,7 +16,7 @@ const Need = ({ need }: Props) => {
 
   return (
     <button
-      className={`rounded-3xl p-10 md:w-96 ${
+      className={`rounded-3xl hover:bg-catalina-tile p-10 md:w-96 ${
         isActive(selectedNeed, need) && "bg-catalina-tile"
       }`}
       onClick={() => setSelectedNeed(need)}

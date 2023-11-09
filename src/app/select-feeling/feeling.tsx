@@ -12,9 +12,9 @@ const Feeling = ({ feeling }: Props) => {
   const { selectedFeeling, setSelectedFeeling } = useFeelingStore();
   return (
     <button
-      className={`text-md p-2 font-semibold text-sepia-black md:text-xl ${
+      className={`text-md rounded-2xl p-2 font-semibold text-sepia-black hover:bg-catalina-tile md:text-xl ${
         selectedFeeling && selectedFeeling?.label === feeling.label
-          ? "rounded-2xl bg-catalina-tile"
+          ? " bg-catalina-tile"
           : ""
       }`}
       onClick={() => setSelectedFeeling(feeling)}

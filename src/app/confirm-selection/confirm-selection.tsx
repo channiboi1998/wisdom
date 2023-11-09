@@ -51,34 +51,50 @@ const ConfirmSelection = () => {
         </p>
       </div>
       {/* Actions */}
-      <div className="flex flex-row items-center justify-center space-x-5 text-center">
-        <button
-          onClick={() => {
-            setSelectedScreen(Screen.SELECT_NEED);
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-          }}
-          className="p-2 text-bootstrap-leather"
-        >
-          <ArrowIcon className="h-[50px] w-[50px] rotate-180" fill="#793723" />
-        </button>
-        {selectedNeed && (
+      <div className="flex flex-row items-center justify-center">
+        <div className="flex h-20 w-20 flex-col items-center justify-center">
           <button
             onClick={() => {
-              setSelectedScreen(Screen.RESULT);
+              setSelectedScreen(Screen.SELECT_NEED);
               window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
             }}
             className="p-2 text-bootstrap-leather"
           >
-            <ArrowIcon className="h-[50px] w-[50px]" fill="#793723" />
+            <ArrowIcon
+              className="h-[50px] w-[50px] rotate-180 hover:h-[60px] hover:w-[60px]"
+              fill="#793723"
+            />
           </button>
+        </div>
+        {selectedNeed && (
+          <div className="flex h-20 w-20 flex-col items-center justify-center">
+            <button
+              onClick={() => {
+                setSelectedScreen(Screen.RESULT);
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              }}
+              className="p-2 text-bootstrap-leather"
+            >
+              <ArrowIcon
+                className="h-[50px] w-[50px] hover:h-[60px] hover:w-[60px]"
+                fill="#793723"
+              />
+            </button>
+          </div>
         )}
-        <Link
-          className="p-2 text-bootstrap-leather"
-          href="https://beingbakedcookies.ca"
-          target="_blank"
-        >
-          <CookieIcon className="h-[50px] w-[50px]" fill="#793723" />
-        </Link>
+
+        <div className="flex h-20 w-20 flex-col items-center justify-center">
+          <Link
+            className="p-2 text-bootstrap-leather"
+            href="https://beingbakedcookies.ca"
+            target="_blank"
+          >
+            <CookieIcon
+              className="h-[50px] w-[50px] hover:h-[60px] hover:w-[60px]"
+              fill="#793723"
+            />
+          </Link>
+        </div>
       </div>
     </>
   );
