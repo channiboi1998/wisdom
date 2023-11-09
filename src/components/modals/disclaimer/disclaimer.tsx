@@ -25,10 +25,13 @@ const Disclaimer = () => {
       <Dialog.Panel className="flex h-full w-full items-center justify-center bg-bootstrap-leather">
         <div className="relative w-10/12 max-w-7xl py-8 md:py-14 lg:text-center">
           <button
-            className="absolute right-0 top-0 font-semibold text-catalina-tile focus:outline-none"
+            className="absolute -right-6 -top-6 flex h-20 w-20 flex-col items-center justify-center font-semibold text-catalina-tile focus:outline-none"
             onClick={closeModal}
           >
-            <CloseIcon className="h-5 w-5 md:h-8 md:w-8" fill="#EDAD73" />
+            <CloseIcon
+              className="h-5 w-5 md:h-8 md:w-8 hover:md:h-10 hover:md:w-10"
+              fill="#EDAD73"
+            />
           </button>
           <p className="text-md py-2 font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl xl:text-4xl">
             Before you begin, we wish to emphasize that this service is not a
