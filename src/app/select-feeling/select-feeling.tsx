@@ -41,7 +41,7 @@ const SelectFeeling = () => {
           <div className="flex h-20 w-20 flex-col items-center justify-center">
             <button
               onClick={() => {
-                window.scroll({ top: 0, behavior: "smooth" });
+                window.scroll({ top: 0 });
                 setSelectedScreen(Screen.SELECT_NEED);
               }}
               className="p-2 text-bootstrap-leather"
