@@ -42,7 +42,7 @@ const SelectFeeling = () => {
             <button
               onClick={() => {
                 setSelectedScreen(Screen.SELECT_NEED);
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scroll({ top: 0, left: 0, behavior: "smooth" });
               }}
               className="p-2 text-bootstrap-leather"
             >

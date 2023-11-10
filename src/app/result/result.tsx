@@ -37,7 +37,7 @@ const Result = () => {
           <button
             onClick={() => {
               setSelectedScreen(Screen.CONFIRM_SELECTION);
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              window.scroll({ top: 0, left: 0, behavior: "smooth" });
             }}
             className="p-2 text-bootstrap-leather"
           >
@@ -52,7 +52,7 @@ const Result = () => {
             <button
               onClick={() => {
                 setSelectedScreen(Screen.COMPLETE);
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scroll({ top: 0, left: 0, behavior: "smooth" });
               }}
               className="p-2 text-bootstrap-leather"
             >

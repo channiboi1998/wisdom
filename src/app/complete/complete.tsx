@@ -19,7 +19,7 @@ const Complete = () => {
     setSelectedFeeling(null);
     setSelectedNeed(null);
     setSelectedScreen(Screen.SELECT_FEELING);
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   };
   return (
     <>
@@ -55,7 +55,7 @@ const Complete = () => {
           <button
             onClick={() => {
               setSelectedScreen(Screen.RESULT);
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              window.scroll({ top: 0, left: 0, behavior: "smooth" });
             }}
             className="rotate-180 p-2 text-bootstrap-leather"
           >
