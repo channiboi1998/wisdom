@@ -1,6 +1,7 @@
 "use client";
 
 import { Feeling, useFeelingStore } from "@/zustand/feeling";
+import { Screen, useScreenStore } from "@/zustand/screen";
 import Image from "next/image";
 import React from "react";
 
@@ -9,15 +10,19 @@ type Props = {
 };
 
 const Feeling = ({ feeling }: Props) => {
+  const { setSelectedScreen } = useScreenStore();
   const { selectedFeeling, setSelectedFeeling } = useFeelingStore();
   return (
     <button
-      className={`text-md rounded-2xl p-2 font-semibold text-sepia-black hover:md:bg-catalina-tile md:text-xl ${
+      className={`text-md rounded-2xl p-2 font-semibold text-sepia-black md:text-xl hover:md:bg-catalina-tile ${
         selectedFeeling && selectedFeeling?.label === feeling.label
           ? " bg-catalina-tile"
           : ""
       }`}
-      onClick={() => setSelectedFeeling(feeling)}
+      onClick={() => {
+        setSelectedFeeling(feeling);
+        setSelectedScreen(Screen.SELECT_NEED);
+      }}
     >
       {feeling.image?.url && (
         <Image

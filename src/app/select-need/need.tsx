@@ -1,6 +1,7 @@
 "use client";
 
 import { Need, useNeedStore } from "@/zustand/need";
+import { Screen, useScreenStore } from "@/zustand/screen";
 import React from "react";
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
 };
 
 const Need = ({ need }: Props) => {
+  const { setSelectedScreen } = useScreenStore();
   const { selectedNeed, setSelectedNeed } = useNeedStore();
 
   const isActive = (selectedNeed: Need | null, need: Need) => {
@@ -16,10 +18,13 @@ const Need = ({ need }: Props) => {
 
   return (
     <button
-      className={`rounded-3xl hover:md:bg-catalina-tile p-10 md:w-96 ${
+      className={`rounded-3xl p-10 md:w-96 hover:md:bg-catalina-tile ${
         isActive(selectedNeed, need) && "bg-catalina-tile"
       }`}
-      onClick={() => setSelectedNeed(need)}
+      onClick={() => {
+        setSelectedNeed(need);
+        setSelectedScreen(Screen.CONFIRM_SELECTION);
+      }}
     >
       <p className="mb-4 text-2xl font-bold text-sepia-black md:text-5xl">
         {need.label}

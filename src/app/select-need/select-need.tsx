@@ -16,7 +16,7 @@ const SelectNeed = () => {
   useGetNeeds();
   const { setSelectedScreen } = useScreenStore();
   const { selectedFeeling } = useFeelingStore();
-  const { needs, selectedNeed } = useNeedStore();
+  const { needs } = useNeedStore();
 
   return (
     <>
@@ -60,7 +60,7 @@ const SelectNeed = () => {
             />
           </button>
         </div>
-        {selectedNeed && (
+        {/* {selectedNeed && (
           <div className="flex h-20 w-20 flex-col items-center justify-center">
             <button
               onClick={() => {
@@ -75,8 +75,7 @@ const SelectNeed = () => {
               />
             </button>
           </div>
-        )}
-
+        )} */}
         <div className="flex h-20 w-20 flex-col items-center justify-center">
           <Link
             className="p-2 text-bootstrap-leather"
