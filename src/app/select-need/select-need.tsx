@@ -33,7 +33,7 @@ const SelectNeed = () => {
             />
           )}
           <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:max-w-[780px] md:text-4xl lg:text-5xl">
-            Presently you feel
+            Presently, you feel
             <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>.
             <br />
             &nbsp;What do you need most?

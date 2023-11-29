@@ -39,7 +39,7 @@ const Disclaimer = () => {
             facing a crisis, we encourage you to call or text a mental health
             support line available in your area. If you ever find that your
             emotions become too uncomfortable during your experience here, don’t
-            hesitate to step away and prioritize your self-care.
+            hesitate to pause and prioritize your self-care.
           </p>
           <p className="text-md py-2 font-semibold tracking-wide text-catalina-tile lg:py-4 lg:text-2xl lg:font-semibold xl:text-4xl">
             We recognize that mental health support varies from person to

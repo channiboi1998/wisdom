@@ -29,7 +29,7 @@ const ConfirmSelection = () => {
             />
           )}
           <h1 className="text-center text-2xl font-bold leading-tight text-bootstrap-leather md:text-4xl lg:text-5xl">
-            Presently you feel
+            Presently, you feel
             <span className="text-grape">&nbsp;{selectedFeeling?.label}</span>
             ,<br />
             and you need
