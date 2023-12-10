@@ -8,12 +8,17 @@ import { useNeedStore } from "@/zustand/need";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ConfirmSelection = () => {
   const { setSelectedScreen } = useScreenStore();
   const { selectedNeed } = useNeedStore();
   const { selectedFeeling } = useFeelingStore();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       {/* Card Component */}
@@ -56,7 +61,6 @@ const ConfirmSelection = () => {
           <button
             onClick={() => {
               setSelectedScreen(Screen.SELECT_NEED);
-              window.scroll({ top: 0, left: 0, behavior: "smooth" });
             }}
             className="p-2 text-bootstrap-leather"
           >

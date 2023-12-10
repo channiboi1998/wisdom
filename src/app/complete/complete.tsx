@@ -8,7 +8,7 @@ import { useNeedStore } from "@/zustand/need";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Complete = () => {
   const { setSelectedScreen } = useScreenStore();
@@ -19,8 +19,12 @@ const Complete = () => {
     setSelectedFeeling(null);
     setSelectedNeed(null);
     setSelectedScreen(Screen.SELECT_FEELING);
-    window.scroll({ top: 0, left: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
       <div className="max-w-7xl text-center">

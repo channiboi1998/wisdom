@@ -8,12 +8,16 @@ import { useMessageStore } from "@/zustand/message";
 import { Need, useNeedStore } from "@/zustand/need";
 import { Screen, useScreenStore } from "@/zustand/screen";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Result = () => {
   const { selectedNeed } = useNeedStore();
   const { setSelectedScreen } = useScreenStore();
   const { randomMessage } = useMessageStore();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
@@ -37,7 +41,6 @@ const Result = () => {
           <button
             onClick={() => {
               setSelectedScreen(Screen.CONFIRM_SELECTION);
-              window.scroll({ top: 0, left: 0, behavior: "smooth" });
             }}
             className="p-2 text-bootstrap-leather"
           >
@@ -52,7 +55,6 @@ const Result = () => {
             <button
               onClick={() => {
                 setSelectedScreen(Screen.COMPLETE);
-                window.scroll({ top: 0, left: 0, behavior: "smooth" });
               }}
               className="p-2 text-bootstrap-leather"
             >
