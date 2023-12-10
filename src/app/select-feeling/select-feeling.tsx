@@ -3,15 +3,18 @@
 import { useFeelingStore } from "@/zustand/feeling";
 import Feeling from "./feeling";
 import Link from "next/link";
-import { useScreenStore } from "@/zustand/screen";
 import useGetFeelings from "@/hooks/use-get-feelings";
 import Card from "@/components/common/card";
 import CookieIcon from "@/components/icons/cookie-icon";
+import { useEffect } from "react";
 
 const SelectFeeling = () => {
   useGetFeelings();
-  const { setSelectedScreen } = useScreenStore();
-  const { feelings, selectedFeeling } = useFeelingStore();
+  const { feelings } = useFeelingStore();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
@@ -36,22 +39,6 @@ const SelectFeeling = () => {
       </div>
       {/* Actions */}
       <div className="flex flex-row items-center justify-center">
-        {/* {selectedFeeling && (
-          <div className="flex h-20 w-20 flex-col items-center justify-center">
-            <button
-              onClick={() => {
-                window.scroll({ top: 0 });
-                setSelectedScreen(Screen.SELECT_NEED);
-              }}
-              className="p-2 text-bootstrap-leather"
-            >
-              <ArrowIcon
-                className="h-[50px] w-[50px] hover:h-[60px] hover:w-[60px]"
-                fill="#793723"
-              />
-            </button>
-          </div>
-        )} */}
         <div className="flex h-20 w-20 flex-col items-center justify-center">
           <Link
             className="p-2 text-bootstrap-leather"
